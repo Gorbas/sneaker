@@ -1,7 +1,13 @@
 <?php
 
 return [
-
+  "mailer" => [
+//    "host" => "smtp.gmail.com",
+//    "port" => 465,
+//    "encryption" => "ssl",
+//    "username" => "gmail@gmail.com",
+//    "password" => "password"
+  ],
     /*
     |--------------------------------------------------------------------------
     | Sends an email on Exception or be silent
