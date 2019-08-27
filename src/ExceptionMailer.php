@@ -55,7 +55,7 @@ class ExceptionMailer extends Mailable implements ShouldQueue {
      * @param  \Illuminate\Contracts\Mail\Mailer  $mailer
      * @return void
      */
-    public function send(Mailer $mailer) {
+    public function send(Illuminate\Contracts\Mail\Mailer $mailer) {
         $customMailer = config("sneaker.mailer");
         if ($customMailer != NULL && is_array($customMailer) && isset($customMailer["host"], $customMailer["port"], $customMailer["encryption"], $customMailer["username"], $customMailer["password"])) {
             $host = $customMailer["host"];
