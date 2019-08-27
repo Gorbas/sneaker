@@ -1,5 +1,5 @@
 {
-    "name": "squareboat/sneaker",
+    "name": "Gorbas/sneaker",
     "description": "An easy way to send emails with stack trace whenever an exception occurs on the server for Laravel Applications.",
     "type": "library",
     "license": "MIT",
