@@ -66,7 +66,7 @@ class ExceptionMailer extends Mailable implements ShouldQueue {
             $transport = new \Swift_SmtpTransport($host, $port, $security);
             $transport->setUsername($customMailer["username"]);
             $transport->setPassword($customMailer["password"]);
-            
+
             $mailer->setSwiftMailer(new \Swift_Mailer($transport));
 
             $this->build();
@@ -78,10 +78,11 @@ class ExceptionMailer extends Mailable implements ShouldQueue {
                     ->runCallbacks($message);
                 if (isset($customMailer["from"], $customMailer["from"]["address"])) {
                     $from = $customMailer["from"];
-                    $this->setFrom(isset($from["name"], $from["address"]) ? [$from["address"] => $from["name"]] : $from["address"]);
+                    $message->setFrom(isset($from["name"], $from["address"]) ? [$from["address"] => $from["name"]] : $from["address"]);
                 }
             });
-        } else {
+        }
+        else {
             parent::send($mailer);
         }
     }
