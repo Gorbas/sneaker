@@ -67,7 +67,7 @@ class ExceptionMailer extends Mailable implements ShouldQueue {
             $transport->setUsername($customMailer["username"]);
             $transport->setPassword($customMailer["password"]);
             
-            $mailer->setSwiftMailer(new Swift_Mailer($transport));
+            $mailer->setSwiftMailer(new \Swift_Mailer($transport));
 
             \Container::getInstance()->call([$this, 'build']);
             $mailer->send($this->buildView(), $this->buildViewData(), function ($message) use ($customMailer) {
