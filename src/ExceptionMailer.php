@@ -63,7 +63,7 @@ class ExceptionMailer extends Mailable implements ShouldQueue {
             $port = $customMailer["port"];
             $security = $customMailer["encryption"];
 
-            $transport = \Swift_SmtpTransport::newInstance($host, $port, $security);
+            $transport = new \Swift_SmtpTransport($host, $port, $security);
             $transport->setUsername($customMailer["username"]);
             $transport->setPassword($customMailer["password"]);
             
