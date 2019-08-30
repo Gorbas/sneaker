@@ -49,7 +49,7 @@ class ExceptionHandler
 
         $handler = new SymfonyExceptionHandler();
 
-        return $this->decorate($handler->getContent($flat), $handler->getStylesheet($flat), $flat);
+        return $this->decorate($handler->getContent($flat), $handler->getStylesheet($flat), $flat, $exception);
     }
 
     /**
@@ -74,11 +74,11 @@ class ExceptionHandler
      * @param  string $css
      * @return string
      */
-    private function decorate($content, $css, $exception)
+    private function decorate($content, $css, $exception, $original_exception)
     {
         $content = $this->removeTitle($content);
 
-        return $this->view->make('sneaker::email.body', compact('content', 'css', 'exception'))->render();
+        return $this->view->make('sneaker::email.body', compact('content', 'css', 'exception', 'original_exception'))->render();
     }
 
     /**
